@@ -193,6 +193,8 @@ export default {
       this.loading = true
       this.$store.dispatch('saveCategory', this.formData).then(() => {
         this.loading = false
+         this.dialogVisible =  false,
+      this.innerVisible =  false,
         this.$message({
           message: 'Salvo com sucesso!',
           type: 'success',
