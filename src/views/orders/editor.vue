@@ -22,13 +22,13 @@
               <img
                 :src="item.image && item.image.url ? item.image.url : '/static/sem-imagem.png'"
                 :alt="item.image && item.image.original_name ? item.image.original_name : 'Sem Imagem'"
-              >
+              />
             </div>
             <div>
               <span>
                 <strong>{{ item.name }}</strong>
               </span>
-              <br>
+              <br />
               <span>
                 <strong>R$</strong>
                 {{ item.price }}
@@ -57,24 +57,24 @@
               >Adicionar Itens</el-button>
             </div>
             <el-table v-loading="loading" :data="formData.items">
-              <el-table-column label="ID" prop="product.id" width="50"/>
+              <el-table-column label="ID" prop="product.id" width="50" />
               <el-table-column label="Imagem" width="100">
                 <template slot-scope="scope">
                   <img
                     :src="scope.row.product && scope.row.product.image ? scope.row.product.image.url : '/static/sem-imagem.png'"
                     class="product-thumbnail"
-                  >
+                  />
                 </template>
               </el-table-column>
-              <el-table-column label="Nome" prop="product.name"/>
+              <el-table-column label="Nome" prop="product.name" />
               <el-table-column label="Preço" width="90">
                 <template slot-scope="scope" prop="product.image">
-                  <span>R$ {{ (scope.row.product.price).toFixed(2) }}</span>
+                  <span>R$ {{ parseFloat(scope.row.product.price).toFixed(2) }}</span>
                 </template>
               </el-table-column>
               <el-table-column label="Quantidade" width="150">
                 <template slot-scope="scope">
-                  <el-input-number v-model="scope.row.quantity" :min="1" :max="100" size="mini"/>
+                  <el-input-number v-model="scope.row.quantity" :min="1" :max="100" size="mini" />
                 </template>
               </el-table-column>
               <el-table-column label="subtotal">
@@ -85,7 +85,7 @@
               <el-table-column width="50">
                 <template slot-scope="scope">
                   <el-button type="text" @click="removeFromCart(scope.row.product.id)">
-                    <i class="el-icon-close"/>
+                    <i class="el-icon-close" />
                   </el-button>
                 </template>
               </el-table-column>
@@ -133,7 +133,7 @@
                     content="Voce precisa salvar o pedido antes de adicionar desconto!"
                     placement="top"
                   >
-                    <el-input placeholder="Insira o código" suffix-icon="el-icon-warning" disabled/>
+                    <el-input placeholder="Insira o código" suffix-icon="el-icon-warning" disabled />
                   </el-tooltip>
                   <el-input v-else v-model="couponCode" placeholder="Insira o código">
                     <el-button
@@ -164,18 +164,18 @@
                     type="text"
                     @click="handleRemoveDiscount(discount.id)"
                   >
-                    <i class="el-icon-close"/>
+                    <i class="el-icon-close" />
                   </el-button>
                   <span>R$ {{ discount.amount }}</span>
                 </el-row>
-                <hr>
+                <hr />
                 <div class="order-info">
                   <h4>Total</h4>
                   <span>R$ {{ orderTotal.toFixed(2) }}</span>
                 </div>
               </el-form>
               <el-button v-show="formData.id" type="danger">
-                <i class="el-icon-delete"/>
+                <i class="el-icon-delete" />
               </el-button>
               <el-button
                 :disabled="canSave"
