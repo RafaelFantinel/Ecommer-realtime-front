@@ -9,12 +9,12 @@
       :default-sort="{prop: 'id', order: 'ascending'}"
       fit
     >
-      <el-table-column label="ID" prop="id" width="60"/>
-      <el-table-column label="Código" prop="code" align="center"/>
+      <el-table-column label="ID" prop="id" width="60" />
+      <el-table-column label="Código" prop="code" align="center" />
       <el-table-column label="Valor do Desconto" align="center">
         <template slot-scope="scope">{{ formatDiscountValue(scope.row) }}</template>
       </el-table-column>
-      <el-table-column label="Quantidade" prop="quantity" align="center"/>
+      <el-table-column label="Quantidade" prop="quantity" align="center" />
       <el-table-column align="right" width="200">
         <template slot="header" slot-scope="scope">
           <el-input
@@ -365,11 +365,13 @@ export default {
 
     handleSave() {
       this.$store.dispatch('saveCoupon', this.formData).then(() => {
-        this.$message({
-          message: 'Salvo com Sucesso!',
-          type: 'success',
-          duration: 3000
-        })
+        ;(this.editDialog = false),
+          (this.confirmDeleteDialog = false),
+          this.$message({
+            message: 'Salvo com Sucesso!',
+            type: 'success',
+            duration: 3000
+          })
       })
     },
 
