@@ -5,7 +5,7 @@ Painel de Administração do curso E-commerce Realtime com AdonisJS na Udemy
 # Instalação
 
 ```bash
-git clone git@github.com:thau0x01/ecommerce-dashboard.git --dissociate
+Clonar o repositorio
 cd ecommerce-dashboard
 npm install
 ```
